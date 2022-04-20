@@ -11,6 +11,8 @@ interface IProps {
     return <>{props.a + props.b}</>
   
   }
+
+  
 const Type = () => {
   return (
     <div>

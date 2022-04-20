@@ -2,7 +2,7 @@ import React ,{useState} from 'react'
 
 interface IUserForm {
     name:string,
-    age:number
+    age:number | null
 }
 
 const defaultValue = {
