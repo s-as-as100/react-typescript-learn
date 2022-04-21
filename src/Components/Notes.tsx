@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { ChangeEventHandler } from "react";
+import { getData } from "../utils/getData.util";
 // typescript is static type
 //it's just JavaScript, with static typing.
 
@@ -42,7 +43,8 @@ const Notes = () => {
   type SearchBoxProps = {
     className: string;
     placeholder?: string | null;
-
+// change event handler is provided by react which can use to implemnt for input
+// react is type is default all the component 
     onChangeHandle: ChangeEventHandler<HTMLInputElement>;
   };
 
@@ -73,6 +75,15 @@ const Notes = () => {
     galiNumber: "gali number",
   };
 
+// pass generics 
+
+useEffect(() => {
+  const fetchUser = async () => {
+    const userData = await getData("www.random.com/user")
+  }
+}, [ ])
+
+
   const SearchComponent = ({
     className,
     placeholder,
@@ -87,6 +98,24 @@ const Notes = () => {
       />
     );
   };
+
+
+ ///  generics is a type parameter that can be used throughout the rest
+ // of the function inside 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
