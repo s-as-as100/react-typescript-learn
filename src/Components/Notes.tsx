@@ -1,10 +1,20 @@
-import React,{useEffect} from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React,{useEffect, useState} from "react";
 import { ChangeEventHandler } from "react";
 import { getData } from "../utils/getData.util";
 // typescript is static type
 //it's just JavaScript, with static typing.
+export type Monster = {
+  id:string,
+  name:string,
+  email:string
+
+}
 
 const Notes = () => {
+
+
+  const [monsters, setMonster] = useState<Monster[]> ([])
   function passValue(data: String) {
     console.log("value", data);
     data.toLowerCase();
@@ -75,12 +85,20 @@ const Notes = () => {
     galiNumber: "gali number",
   };
 
+// define generic type
+
+
+
+
 // pass generics 
 
 useEffect(() => {
   const fetchUser = async () => {
-    const userData = await getData("www.random.com/user")
+    const userData = await getData<Monster[]>("www.random.com/user")
+    setMonster(userData)
   }
+
+  fetchUser()
 }, [ ])
 
 
